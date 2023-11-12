@@ -83,13 +83,16 @@ namespace olympia
             // Send instructions on their way to rename
             for(uint32_t i = 0; i < num_decode; ++i) {
                 const auto & inst = fetch_queue_.read(0);
-                insts->emplace_back(inst);
-                inst->setStatus(Inst::Status::RENAMED);
+                fetch_queue_.pop();
 
                 ILOG("Decoded: " << inst);
 
-                fetch_queue_.pop();
+                inst->setStatus(Inst::Status::DECODED);
+                insts->emplace_back(inst);
             }
+
+            if (try_merge_insts_)
+                insts = Decode::tryMergeInsts(insts);
 
             // Send decoded instructions to rename
             uop_queue_outp_.send(insts);
@@ -107,4 +110,69 @@ namespace olympia
             ev_decode_insts_event_.schedule(1);
         }
     }
+
+    // check inst pair can be merge
+    InstPtr Decode::canMerge(InstPtr a, InstPtr b) {
+
+        // Load Effective Address
+        if (a->getMnemonic() == "slli" && b->getMnemonic() == "add" && 
+            (a->getDestRegisterBitMask(core_types::RF_INTEGER) & b->getSrcRegisterBitMask(core_types::RF_INTEGER)) != 0) {
+            
+            return b;
+        }
+
+
+        // Index Load
+        if (a->getMnemonic() == "add" && b->getMnemonic() == "ld" && 
+            (a->getDestRegisterBitMask(core_types::RF_INTEGER) & b->getSrcRegisterBitMask(core_types::RF_INTEGER))!= 0) {
+            
+            return b;
+        }
+
+
+        // Clear Upper Word
+        if (a->getMnemonic() == "slli" && b->getMnemonic() == "srli" && 
+            (a->getDestRegisterBitMask(core_types::RF_INTEGER) & b->getSrcRegisterBitMask(core_types::RF_INTEGER)) != 0 &&
+            a->getImmediate() == 32 && b->getImmediate() == 32) {
+            
+            return b;
+        }
+
+        return nullptr;
+    }
+
+    InstGroupPtr Decode::tryMergeInsts(InstGroupPtr insts) {
+
+        std::deque<InstPtr> mergeQueue(insts->begin(), insts->end());
+        InstGroupPtr newInsts = sparta::allocate_sparta_shared_pointer<InstGroup>(instgroup_allocator);
+
+        while(mergeQueue.size()) {
+            if (mergeQueue.size() == 1) {
+
+                InstPtr a = mergeQueue.front();
+                mergeQueue.pop_front();
+
+                newInsts->emplace_back(a);
+            }
+            else {
+                InstPtr a = mergeQueue.front();
+                mergeQueue.pop_front();
+                InstPtr b = mergeQueue.front();
+                mergeQueue.pop_front();
+
+                InstPtr mergedInst = Decode::canMerge(a, b);
+
+                if (mergedInst == nullptr) {
+                    newInsts->emplace_back(a);
+                    mergeQueue.push_front(b);
+                }
+                else {
+                    newInsts->emplace_back(mergedInst);
+                }
+            }
+        }
+
+        return newInsts;
+    }
+
 }

@@ -164,6 +164,7 @@ namespace olympia
         std::string getMnemonic() const { return opcode_info_->getMnemonic(); }
         std::string getDisasm()   const { return opcode_info_->dasmString(); }
         uint32_t    getOpCode()   const { return static_cast<uint32_t>(opcode_info_->getOpcode()); }
+        uint64_t    getImmediate() const{ return opcode_info_->getImmediate();}
 
         // Operand information
         using OpInfoList = mavis::DecodedInstructionInfo::OpInfoList;
@@ -178,6 +179,9 @@ namespace olympia
         uint64_t    getRAdr() const        { return target_vaddr_ | 0x8000000; } // faked
         bool        isSpeculative() const  { return is_speculative_; }
         bool        isTransfer() const     { return is_transfer_; }
+        bool        isBranch() const        {return opcode_info_->isInstType(mavis::OpcodeInfo::InstructionTypes::BRANCH);}
+        bool        isArith() const         {return opcode_info_->isInstType(mavis::OpcodeInfo::InstructionTypes::ARITH);}
+        bool        isLoad() const          {return opcode_info_->isInstType(mavis::OpcodeInfo::InstructionTypes::LOAD);}
 
         // Rename information
         core_types::RegisterBitMask & getSrcRegisterBitMask(const core_types::RegFile rf) {
