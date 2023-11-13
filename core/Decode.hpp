@@ -82,7 +82,7 @@ namespace olympia
 
         uint32_t uop_queue_credits_ = 0;
         const uint32_t num_to_decode_;
-        bool try_merge_insts_ = 0;
+        bool try_merge_insts_ = 1;
 
         InstGroupPtr tryMergeInsts(InstGroupPtr insts);
         InstPtr canMerge(InstPtr a, InstPtr b);

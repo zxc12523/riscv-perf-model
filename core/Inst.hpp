@@ -166,6 +166,9 @@ namespace olympia
         uint32_t    getOpCode()   const { return static_cast<uint32_t>(opcode_info_->getOpcode()); }
         uint64_t    getImmediate() const{ return opcode_info_->getImmediate();}
 
+        mavis::DecodedInstructionInfo::BitMask getIntSourceRegs() const { return opcode_info_->getIntSourceRegs(); }
+        mavis::DecodedInstructionInfo::BitMask getIntDestRegs() const   { return opcode_info_->getIntDestRegs(); }
+
         // Operand information
         using OpInfoList = mavis::DecodedInstructionInfo::OpInfoList;
         const OpInfoList& getSourceOpInfoList() const { return opcode_info_->getSourceOpInfoList(); }

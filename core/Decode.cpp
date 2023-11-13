@@ -83,12 +83,12 @@ namespace olympia
             // Send instructions on their way to rename
             for(uint32_t i = 0; i < num_decode; ++i) {
                 const auto & inst = fetch_queue_.read(0);
-                fetch_queue_.pop();
+                insts->emplace_back(inst);
+                inst->setStatus(Inst::Status::RENAMED);
 
                 ILOG("Decoded: " << inst);
 
-                inst->setStatus(Inst::Status::DECODED);
-                insts->emplace_back(inst);
+                fetch_queue_.pop();
             }
 
             if (try_merge_insts_)
@@ -115,26 +115,76 @@ namespace olympia
     InstPtr Decode::canMerge(InstPtr a, InstPtr b) {
 
         // Load Effective Address
-        if (a->getMnemonic() == "slli" && b->getMnemonic() == "add" && 
-            (a->getDestRegisterBitMask(core_types::RF_INTEGER) & b->getSrcRegisterBitMask(core_types::RF_INTEGER)) != 0) {
-            
+        if (a->getMnemonic() == "slli" && b->getMnemonic() == "add" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Merged: " << a << b);
+            return b;
+        }
+
+        if (a->getMnemonic() == "c.slli" && b->getMnemonic() == "c.add" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Merged: " << a << b);
+            return b;
+        }
+
+        if (a->getMnemonic() == "slliw" && b->getMnemonic() == "addw" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Merged: " << a << b);
             return b;
         }
 
 
         // Index Load
-        if (a->getMnemonic() == "add" && b->getMnemonic() == "ld" && 
-            (a->getDestRegisterBitMask(core_types::RF_INTEGER) & b->getSrcRegisterBitMask(core_types::RF_INTEGER))!= 0) {
-            
+        if (a->getMnemonic() == "add" && b->getMnemonic() == "ld" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Merged: " << a << b);
             return b;
         }
 
 
         // Clear Upper Word
-        if (a->getMnemonic() == "slli" && b->getMnemonic() == "srli" && 
-            (a->getDestRegisterBitMask(core_types::RF_INTEGER) & b->getSrcRegisterBitMask(core_types::RF_INTEGER)) != 0 &&
+        if (a->getMnemonic() == "slli" && b->getMnemonic() == "srli" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0 &&
             a->getImmediate() == 32 && b->getImmediate() == 32) {
-            
+            ILOG("Merged: " << a << b);
+            return b;
+        }
+
+        // load pair
+        if (((a->getMnemonic() == "lw" && b->getMnemonic() == "lw") || (
+            a->getMnemonic() == "c.lw" && b->getMnemonic() == "c.lw")) && (
+            a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
+            b->getImmediate() - a->getImmediate() == 4
+        ) {
+            ILOG("Merged: " << a << b);
+            return b;
+        }
+
+        if (((a->getMnemonic() == "ld" && b->getMnemonic() == "ld") || (
+            a->getMnemonic() == "c.ld" && b->getMnemonic() == "c.ld")) && (
+            a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
+            b->getImmediate() - a->getImmediate() == 8
+        ) {
+            ILOG("Merged: " << a << b);
+            return b;
+        }
+
+        // store pair
+        if (((a->getMnemonic() == "sw" && b->getMnemonic() == "sw") || (
+            a->getMnemonic() == "c.sw" && b->getMnemonic() == "c.sw")) && (
+            a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
+            b->getImmediate() - a->getImmediate() == 4
+        ) {
+            ILOG("Merged: " << a << b);
+            return b;
+        }
+
+        if (((a->getMnemonic() == "sd" && b->getMnemonic() == "sd") || (
+            a->getMnemonic() == "c.sd" && b->getMnemonic() == "c.sd")) && (
+            a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
+            b->getImmediate() - a->getImmediate() == 8
+        ) {
+            ILOG("Merged: " << a << b);
             return b;
         }
 
