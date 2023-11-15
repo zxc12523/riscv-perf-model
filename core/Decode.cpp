@@ -43,7 +43,7 @@ namespace olympia
             ev_decode_insts_event_.schedule(sparta::Clock::Cycle(0));
         }
 
-        ILOG("Received credits: " << uop_queue_credits_in_);
+        // ILOG("Received credits: " << uop_queue_credits_in_);
     }
 
     // Called when the fetch buffer was appended by Fetch.  If decode
@@ -55,7 +55,7 @@ namespace olympia
         for(auto & i : *insts)
         {
             fetch_queue_.push(i);
-            ILOG("Received: " << i);
+            // ILOG("Received: " << i);
         }
         if (uop_queue_credits_ > 0) {
             ev_decode_insts_event_.schedule(sparta::Clock::Cycle(0));
@@ -65,7 +65,7 @@ namespace olympia
     // Handle incoming flush
     void Decode::handleFlush_(const FlushManager::FlushingCriteria & criteria)
     {
-        ILOG("Got a flush call for " << criteria);
+        // ILOG("Got a flush call for " << criteria);
         fetch_queue_credits_outp_.send(fetch_queue_.size());
         fetch_queue_.clear();
     }
@@ -86,7 +86,7 @@ namespace olympia
                 insts->emplace_back(inst);
                 inst->setStatus(Inst::Status::RENAMED);
 
-                ILOG("Decoded: " << inst);
+                // ILOG("Decoded: " << inst);
 
                 fetch_queue_.pop();
             }
@@ -98,7 +98,7 @@ namespace olympia
             uop_queue_outp_.send(insts);
 
             // Decrement internal Uop Queue credits
-            uop_queue_credits_ -= num_decode;
+            uop_queue_credits_ -= insts->size();
 
             // Send credits back to Fetch to get more instructions
             fetch_queue_credits_outp_.send(num_decode);
@@ -117,19 +117,31 @@ namespace olympia
         // Load Effective Address
         if (a->getMnemonic() == "slli" && b->getMnemonic() == "add" && (
             a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
-            ILOG("Merged: " << a << b);
+            ILOG("Load Effective Address: " << a << b);
+            return b;
+        }
+
+        if (a->getMnemonic() == "c.slli" && b->getMnemonic() == "add" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Load Effective Address: " << a << b);
+            return b;
+        }
+
+        if (a->getMnemonic() == "slli" && b->getMnemonic() == "c.add" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Load Effective Address: " << a << b);
             return b;
         }
 
         if (a->getMnemonic() == "c.slli" && b->getMnemonic() == "c.add" && (
             a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
-            ILOG("Merged: " << a << b);
+            ILOG("Load Effective Address: " << a << b);
             return b;
         }
 
         if (a->getMnemonic() == "slliw" && b->getMnemonic() == "addw" && (
             a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
-            ILOG("Merged: " << a << b);
+            ILOG("Load Effective Address: " << a << b);
             return b;
         }
 
@@ -137,7 +149,7 @@ namespace olympia
         // Index Load
         if (a->getMnemonic() == "add" && b->getMnemonic() == "ld" && (
             a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
-            ILOG("Merged: " << a << b);
+            ILOG("Index Load: " << a << b);
             return b;
         }
 
@@ -146,17 +158,52 @@ namespace olympia
         if (a->getMnemonic() == "slli" && b->getMnemonic() == "srli" && (
             a->getIntDestRegs() & b->getIntSourceRegs()) != 0 &&
             a->getImmediate() == 32 && b->getImmediate() == 32) {
-            ILOG("Merged: " << a << b);
+            ILOG("Clear Upper Word: " << a << b);
             return b;
         }
 
-        // load pair
+        if (a->getMnemonic() == "slli" && b->getMnemonic() == "c.srli" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0 &&
+            a->getImmediate() == 32 && b->getImmediate() == 32) {
+            ILOG("Clear Upper Word: " << a << b);
+            return b;
+        }
+
+        if (a->getMnemonic() == "c.slli" && b->getMnemonic() == "srli" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0 &&
+            a->getImmediate() == 32 && b->getImmediate() == 32) {
+            ILOG("Clear Upper Word: " << a << b);
+            return b;
+        }
+
+        if (a->getMnemonic() == "c.slli" && b->getMnemonic() == "c.srli" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0 &&
+            a->getImmediate() == 32 && b->getImmediate() == 32) {
+            ILOG("Clear Upper Word: " << a << b);
+            return b;
+        }
+
+        // Load Immediate Idiom
+        if (a->getMnemonic() == "lui" && b->getMnemonic() == "addi" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Load Immediate Idiom: " << a << b);
+            return b;
+        }
+
+        // Load Global
+        if (a->getMnemonic() == "auipc" && b->getMnemonic() == "ld" && (
+            a->getIntDestRegs() & b->getIntSourceRegs()) != 0) {
+            ILOG("Load Global: " << a << b);
+            return b;
+        }
+
+        // Load pair
         if (((a->getMnemonic() == "lw" && b->getMnemonic() == "lw") || (
             a->getMnemonic() == "c.lw" && b->getMnemonic() == "c.lw")) && (
             a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
             b->getImmediate() - a->getImmediate() == 4
         ) {
-            ILOG("Merged: " << a << b);
+            ILOG("Load pair: " << a << b);
             return b;
         }
 
@@ -165,17 +212,17 @@ namespace olympia
             a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
             b->getImmediate() - a->getImmediate() == 8
         ) {
-            ILOG("Merged: " << a << b);
+            ILOG("Load pair: " << a << b);
             return b;
         }
 
-        // store pair
+        // Store pair
         if (((a->getMnemonic() == "sw" && b->getMnemonic() == "sw") || (
             a->getMnemonic() == "c.sw" && b->getMnemonic() == "c.sw")) && (
             a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
             b->getImmediate() - a->getImmediate() == 4
         ) {
-            ILOG("Merged: " << a << b);
+            ILOG("Store pair: " << a << b);
             return b;
         }
 
@@ -184,7 +231,7 @@ namespace olympia
             a->getIntSourceRegs() & b->getIntSourceRegs()) != 0 && 
             b->getImmediate() - a->getImmediate() == 8
         ) {
-            ILOG("Merged: " << a << b);
+            ILOG("Store pair: " << a << b);
             return b;
         }
 

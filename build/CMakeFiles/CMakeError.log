@@ -1,0 +1,750 @@
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_1cb14 && [1/2] Building CXX object CMakeFiles/cmTC_1cb14.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_1cb14.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_1cb14.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_1cb14.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_1cb14
+FAILED: cmTC_1cb14 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_1cb14.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_1cb14   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_1cb14 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_1cb14.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_34f67 && [1/2] Building CXX object CMakeFiles/cmTC_34f67.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_34f67
+FAILED: cmTC_34f67 
+: && /usr/bin/clang++   CMakeFiles/cmTC_34f67.dir/testCXXCompiler.cxx.o -o cmTC_34f67   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_c8513 && [1/2] Building CXX object CMakeFiles/cmTC_c8513.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_c8513.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_c8513.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_c8513.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_c8513
+FAILED: cmTC_c8513 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_c8513.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c8513   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_c8513 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_c8513.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_1ef04 && [1/2] Building CXX object CMakeFiles/cmTC_1ef04.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_1ef04
+FAILED: cmTC_1ef04 
+: && /usr/bin/clang++   CMakeFiles/cmTC_1ef04.dir/testCXXCompiler.cxx.o -o cmTC_1ef04   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_17fca && [1/2] Building CXX object CMakeFiles/cmTC_17fca.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_17fca.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_17fca.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_17fca.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_17fca
+FAILED: cmTC_17fca 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_17fca.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_17fca   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_17fca /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_17fca.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_f1835 && [1/2] Building CXX object CMakeFiles/cmTC_f1835.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_f1835
+FAILED: cmTC_f1835 
+: && /usr/bin/clang++   CMakeFiles/cmTC_f1835.dir/testCXXCompiler.cxx.o -o cmTC_f1835   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_a3564 && [1/2] Building CXX object CMakeFiles/cmTC_a3564.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_a3564.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_a3564.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a3564.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_a3564
+FAILED: cmTC_a3564 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_a3564.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a3564   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_a3564 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_a3564.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_64ea8 && [1/2] Building CXX object CMakeFiles/cmTC_64ea8.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_64ea8
+FAILED: cmTC_64ea8 
+: && /usr/bin/clang++   CMakeFiles/cmTC_64ea8.dir/testCXXCompiler.cxx.o -o cmTC_64ea8   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_ebf12 && [1/2] Building CXX object CMakeFiles/cmTC_ebf12.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_ebf12.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_ebf12.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_ebf12.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_ebf12
+FAILED: cmTC_ebf12 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_ebf12.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ebf12   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_ebf12 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_ebf12.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_3eeb9 && [1/2] Building CXX object CMakeFiles/cmTC_3eeb9.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_3eeb9
+FAILED: cmTC_3eeb9 
+: && /usr/bin/clang++   CMakeFiles/cmTC_3eeb9.dir/testCXXCompiler.cxx.o -o cmTC_3eeb9   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_33962 && [1/2] Building CXX object CMakeFiles/cmTC_33962.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_33962.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_33962.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_33962.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_33962
+FAILED: cmTC_33962 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_33962.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_33962   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_33962 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_33962.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_d0d71 && [1/2] Building CXX object CMakeFiles/cmTC_d0d71.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_d0d71
+FAILED: cmTC_d0d71 
+: && /usr/bin/clang++   CMakeFiles/cmTC_d0d71.dir/testCXXCompiler.cxx.o -o cmTC_d0d71   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_c39d7 && [1/2] Building CXX object CMakeFiles/cmTC_c39d7.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_c39d7.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_c39d7.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_c39d7.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_c39d7
+FAILED: cmTC_c39d7 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_c39d7.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c39d7   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_c39d7 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_c39d7.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_3c3fd && [1/2] Building CXX object CMakeFiles/cmTC_3c3fd.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_3c3fd
+FAILED: cmTC_3c3fd 
+: && /usr/bin/clang++   CMakeFiles/cmTC_3c3fd.dir/testCXXCompiler.cxx.o -o cmTC_3c3fd   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_098f5 && [1/2] Building CXX object CMakeFiles/cmTC_098f5.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_098f5.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_098f5.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_098f5.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_098f5
+FAILED: cmTC_098f5 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_098f5.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_098f5   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_098f5 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_098f5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_6ab12 && [1/2] Building CXX object CMakeFiles/cmTC_6ab12.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_6ab12
+FAILED: cmTC_6ab12 
+: && /usr/bin/clang++   CMakeFiles/cmTC_6ab12.dir/testCXXCompiler.cxx.o -o cmTC_6ab12   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_0273c && [1/2] Building CXX object CMakeFiles/cmTC_0273c.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_0273c.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_0273c.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_0273c.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_0273c
+FAILED: cmTC_0273c 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_0273c.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_0273c   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_0273c /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_0273c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_ad70e && [1/2] Building CXX object CMakeFiles/cmTC_ad70e.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_ad70e
+FAILED: cmTC_ad70e 
+: && /usr/bin/clang++   CMakeFiles/cmTC_ad70e.dir/testCXXCompiler.cxx.o -o cmTC_ad70e   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: /usr/bin/clang++ 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_94e04 && [1/2] Building CXX object CMakeFiles/cmTC_94e04.dir/CMakeCXXCompilerABI.cpp.o
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ (in-process)
+ "/usr/bin/clang-18" -cc1 -triple riscv64-unknown-linux-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu generic-rv64 -target-feature +m -target-feature +a -target-feature +f -target-feature +d -target-feature +c -target-feature +zicsr -target-feature -e -target-feature -h -target-feature -svinval -target-feature -svnapot -target-feature -svpbmt -target-feature -v -target-feature -xcvalu -target-feature -xcvbi -target-feature -xcvbitmanip -target-feature -xcvmac -target-feature -xcvsimd -target-feature -xsfcie -target-feature -xsfvcp -target-feature -xtheadba -target-feature -xtheadbb -target-feature -xtheadbs -target-feature -xtheadcmo -target-feature -xtheadcondmov -target-feature -xtheadfmemidx -target-feature -xtheadmac -target-feature -xtheadmemidx -target-feature -xtheadmempair -target-feature -xtheadsync -target-feature -xtheadvdot -target-feature -xventanacondops -target-feature -zawrs -target-feature -zba -target-feature -zbb -target-feature -zbc -target-feature -zbkb -target-feature -zbkc -target-feature -zbkx -target-feature -zbs -target-feature -zca -target-feature -zcb -target-feature -zcd -target-feature -zce -target-feature -zcf -target-feature -zcmp -target-feature -zcmt -target-feature -zdinx -target-feature -zfh -target-feature -zfhmin -target-feature -zfinx -target-feature -zhinx -target-feature -zhinxmin -target-feature -zicbom -target-feature -zicbop -target-feature -zicboz -target-feature -zicntr -target-feature -zifencei -target-feature -zihintntl -target-feature -zihintpause -target-feature -zihpm -target-feature -zk -target-feature -zkn -target-feature -zknd -target-feature -zkne -target-feature -zknh -target-feature -zkr -target-feature -zks -target-feature -zksed -target-feature -zksh -target-feature -zkt -target-feature -zmmul -target-feature -zve32f -target-feature -zve32x -target-feature -zve64d -target-feature -zve64f -target-feature -zve64x -target-feature -zvfh -target-feature -zvfhmin -target-feature -zvl1024b -target-feature -zvl128b -target-feature -zvl16384b -target-feature -zvl2048b -target-feature -zvl256b -target-feature -zvl32768b -target-feature -zvl32b -target-feature -zvl4096b -target-feature -zvl512b -target-feature -zvl64b -target-feature -zvl65536b -target-feature -zvl8192b -target-feature -experimental-smaia -target-feature -experimental-ssaia -target-feature -experimental-zacas -target-feature -experimental-zfa -target-feature -experimental-zfbfmin -target-feature -experimental-zicfilp -target-feature -experimental-zicond -target-feature -experimental-ztso -target-feature -experimental-zvbb -target-feature -experimental-zvbc -target-feature -experimental-zvfbfmin -target-feature -experimental-zvfbfwma -target-feature -experimental-zvkb -target-feature -experimental-zvkg -target-feature -experimental-zvkn -target-feature -experimental-zvknc -target-feature -experimental-zvkned -target-feature -experimental-zvkng -target-feature -experimental-zvknha -target-feature -experimental-zvknhb -target-feature -experimental-zvks -target-feature -experimental-zvksc -target-feature -experimental-zvksed -target-feature -experimental-zvksg -target-feature -experimental-zvksh -target-feature -experimental-zvkt -target-feature +relax -target-feature -save-restore -target-abi lp64d -msmall-data-limit 8 -debugger-tuning=gdb -fdebug-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -v -fcoverage-compilation-dir=/home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp -resource-dir /usr/lib/clang/18 -dependency-file CMakeFiles/cmTC_94e04.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_94e04.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -canonical-system-headers -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++ -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward -internal-isystem /usr/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -std=gnu++17 -fdeprecated-macro -ferror-limit 19 -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_94e04.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 18.0.0 based upon LLVM 18.0.0git default target riscv64-unknown-linux-gnu
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/riscv64-unknown-linux-gnu"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++/backward"
+ignoring nonexistent directory "/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../riscv64-unknown-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../include/c++
+ /usr/lib/clang/18/include
+ /usr/local/include
+ /include
+ /usr/include
+End of search list.
+[2/2] Linking CXX executable cmTC_94e04
+FAILED: cmTC_94e04 
+: && /usr/bin/clang++  -v CMakeFiles/cmTC_94e04.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_94e04   && :
+clang version 18.0.0 (https://github.com/llvm/llvm-project.git 0954dc3fb9214b994623f5306473de075f8e3593)
+Target: riscv64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-elf/13.2.0
+Found candidate GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Selected GCC installation: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0
+Found CUDA installation: /usr/lib/cuda, version 11.5
+ "/usr/bin/riscv64-unknown-linux-gnu-ld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf64lriscv -X -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -o cmTC_94e04 /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crti.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtbeginS.o -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0 -L/usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_94e04.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtendS.o /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/crtn.o
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+
+Determining if the CXX compiler works failed with the following output:
+Change Dir: /home/jerry/riscv-perf-model/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_ab8f1 && [1/2] Building CXX object CMakeFiles/cmTC_ab8f1.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_ab8f1
+FAILED: cmTC_ab8f1 
+: && /usr/bin/clang++   CMakeFiles/cmTC_ab8f1.dir/testCXXCompiler.cxx.o -o cmTC_ab8f1   && :
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: Relocations in generic ELF (EM: 62)
+/usr/bin/riscv64-unknown-linux-gnu-ld: /usr/bin/../lib/gcc/riscv64-unknown-linux-gnu/13.2.0/../../../../lib64/Scrt1.o: error adding symbols: file in wrong format
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
