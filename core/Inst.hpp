@@ -87,6 +87,19 @@ namespace olympia
             __LAST
         };
 
+        enum class Compressed : std::uint8_t{
+            None = 0,
+            Load_Effective_Address,
+            Index_Load,
+            Clear_Upper_Word,
+            Load_Immediate_Idiom,
+            Load_Global,
+            Load_Pair,
+            Store_Pair, 
+            Shift_Load, 
+            Imm_Cmp
+        };
+
         /*!
          * \brief Construct an Instruction
          * \param opcode_info    Mavis Opcode information
@@ -133,6 +146,45 @@ namespace olympia
             ev_retire_ = rob_retire_event;
             is_oldest_ = oldest;
         }
+
+        void setCompressed(Inst::Compressed compressed_type ) { 
+            switch (compressed_type)
+            {
+            case Inst::Compressed::Load_Effective_Address:
+                is_compressed = 1;
+                break;
+            case Inst::Compressed::Index_Load:
+                is_compressed = 2;
+                break;
+            case Inst::Compressed::Clear_Upper_Word:
+                is_compressed = 3;
+                break;
+            case Inst::Compressed::Load_Immediate_Idiom:
+                is_compressed = 4;
+                break;
+            case Inst::Compressed::Load_Global:
+                is_compressed = 5;
+                break;
+            case Inst::Compressed::Load_Pair:
+                is_compressed = 6;
+                break;
+            case Inst::Compressed::Store_Pair:
+                is_compressed = 7;
+                break;
+            case Inst::Compressed::Shift_Load:
+                is_compressed = 8;
+                break;
+            case Inst::Compressed::Imm_Cmp:
+                is_compressed = 9;
+                break;
+            
+            default:
+                is_compressed = 0;
+                break;
+            }
+        } 
+
+        uint8_t getCompressed() const          { return is_compressed; } 
 
         bool isMarkedOldest() const { return is_oldest_; }
 
@@ -218,6 +270,7 @@ namespace olympia
         sparta::memory::addr_t inst_pc_       = 0; // Instruction's PC
         sparta::memory::addr_t target_vaddr_  = 0; // Instruction's Target PC (for branches, loads/stores)
         bool                   is_oldest_       = false;
+        uint8_t                is_compressed  = 0;
         uint64_t               unique_id_     = 0; // Supplied by Fetch
         uint64_t               program_id_    = 0; // Supplied by a trace Reader or execution backend
         bool                   is_speculative_ = false; // Is this instruction soon to be flushed?
@@ -270,6 +323,7 @@ namespace olympia
         os << "uid: " << inst.getUniqueID()
            << " " << std::setw(10) << inst.getStatus()
            << " " << std::hex << inst.getPC() << std::dec
+           << " " << std::hex << std::setw(10) << inst.getOpCode() << std::dec
            << " pid: " << inst.getProgramID() << " '" << inst.getDisasm() << "' ";
         return os;
     }

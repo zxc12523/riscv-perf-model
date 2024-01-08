@@ -21,6 +21,12 @@ namespace olympia
             return std::unique_ptr<InstGenerator>(new TraceInstGenerator(mavis_facade, filename, skip_nonuser_mode));
         }
 
+        const std::string trace_ext = "trace";
+        if ((filename.size() > trace_ext.size()) && filename.substr(filename.size() - trace_ext.size()) == trace_ext) {
+            std::cout << "olympia: TRACE file input detected" << std::endl;
+            return std::unique_ptr<InstGenerator>(new QEMUTraceInstGenerator(mavis_facade, filename, skip_nonuser_mode));
+        }
+
         // Dunno what it is...
         sparta_assert(false, "Unknown file extension for '" << filename
                       << "'.  Expected .json or .[z]stf");
@@ -189,4 +195,76 @@ namespace olympia
         return nullptr;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////
+    // QEMU Trace Inst Generator
+    QEMUTraceInstGenerator::QEMUTraceInstGenerator(MavisType * mavis_facade,
+                                           const std::string & filename,
+                                           const bool skip_nonuser_mode) :
+        InstGenerator(mavis_facade)
+    {
+        std::ios_base::iostate exceptionMask = ifs.exceptions() | std::ios::failbit;
+        ifs.exceptions(exceptionMask);
+
+        try {
+            ifs.open(filename, std::ios::binary);
+        } catch (const std::ifstream::failure &e) {
+            throw sparta::SpartaException("ERROR: Issues opening ") << filename << ": " << e.what();
+        }
+    }
+
+    bool QEMUTraceInstGenerator::isDone() const {
+        return ifs.eof();
+    }
+    InstPtr QEMUTraceInstGenerator::getNextInst(const sparta::Clock * clk)
+    {
+        if(SPARTA_EXPECT_FALSE(isDone())) {
+            return nullptr;
+        }
+
+        uint32_t tmp;
+        mavis::Opcode opcode;
+
+        try
+        {
+            /* code */
+            ifs.read(reinterpret_cast<char *>(&tmp), sizeof(int));
+            opcode = (uint64_t)tmp;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+            std::cerr << "fetch trace failed!\n";
+        }
+        
+
+        try {
+            InstPtr inst = mavis_facade_->makeInst(opcode, clk);
+            inst->setUniqueID(++unique_id_);
+            inst->setProgramID(unique_id_);
+            // if (const auto& mem_accesses = next_it_->getMemoryAccesses(); !mem_accesses.empty())
+            // {
+            //     using VectorAddrType = std::vector<sparta::memory::addr_t>;
+            //     VectorAddrType addrs;
+            //     std::for_each(next_it_->getMemoryAccesses().begin(),
+            //                   next_it_->getMemoryAccesses().end(),
+            //                   [&addrs] (const auto & ma) {
+            //                       addrs.emplace_back(ma.getAddress());
+            //                   });
+            //     inst->setTargetVAddr(addrs.front());
+            //     //For misaligns, more than 1 address is provided
+            //     //inst->setVAddrVector(std::move(addrs));
+            // }
+            // ++next_it_;
+            // std::cerr << "read opcode: 0x";
+            // std::cerr << std::setfill('0') << std::hex << std::setw(8) << opcode << '\n';
+            return inst;
+        }
+        catch(std::exception & excpt) {
+            std::cerr << "ERROR: Mavis failed decoding: 0x"
+                      << std::hex << opcode << " err: "
+                      << excpt.what() << std::endl;
+            throw;
+        }
+        return nullptr;
+    }
 }

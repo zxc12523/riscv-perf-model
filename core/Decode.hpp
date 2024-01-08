@@ -37,6 +37,8 @@ namespace olympia
             { }
 
             PARAMETER(uint32_t, num_to_decode,     4, "Number of instructions to process")
+            PARAMETER(bool, fuse_insts,  false, "Whether to compress instruciotns")
+            PARAMETER(bool, fuse_mode,  false, "fuse mode: 0 for back to back, 1 for window")
             PARAMETER(uint32_t, fetch_queue_size, 10, "Size of the fetch queue")
         };
 
@@ -80,11 +82,32 @@ namespace olympia
         void decodeInsts_();
         void handleFlush_(const FlushManager::FlushingCriteria & criteria);
 
+
         uint32_t uop_queue_credits_ = 0;
         const uint32_t num_to_decode_;
-        bool try_merge_insts_ = 1;
 
-        InstGroupPtr tryMergeInsts(InstGroupPtr insts);
-        InstPtr canMerge(InstPtr a, InstPtr b);
+        //////////////////////////////////////////////////////////////////////
+        // Decoder Fusion Unit
+
+        bool fuse_insts_;
+        bool fuse_mode_;
+
+        InstGroupPtr tryFuseInsts(InstGroupPtr insts);
+        InstPtr tryFuse(InstPtr a, InstPtr b);
+
+        bool checkRegisterDependency(InstPtr FirstInst, InstPtr SecondInst);
+        bool checkRegisterSameSource(InstPtr FirstInst, InstPtr SecondInst);
+
+        bool isLoadEffectAddress    (InstPtr FirstInst, InstPtr SecondInst);
+        bool isIndexLoad            (InstPtr FirstInst, InstPtr SecondInst);
+        bool isClearUpperWord       (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadImmediateIdiom   (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadGloabal          (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair32bits       (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair64bits       (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair32bits      (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair64bits      (InstPtr FirstInst, InstPtr SecondInst);
+        bool isShxaddLoad           (InstPtr FirstInst, InstPtr SecondInst);
+        bool isCompareImmediate     (InstPtr FirstInst, InstPtr SecondInst);
     };
 }
