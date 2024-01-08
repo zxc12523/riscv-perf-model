@@ -81,4 +81,22 @@ namespace olympia
         // Always points to the *next* stf inst
         stf::STFInstReader::iterator next_it_;
     };
+
+    // Generates instructions from an STF Trace file
+    class QEMUTraceInstGenerator : public InstGenerator
+    {
+    public:
+        // Creates a TraceInstGenerator with the given mavis facade
+        // and filename.  The parameter skip_nonuser_mode allows the
+        // trace generator to skip system instructions if present
+        QEMUTraceInstGenerator(MavisType * mavis_facade,
+                           const std::string & filename,
+                           const bool skip_nonuser_mode);
+
+        InstPtr getNextInst(const sparta::Clock * clk) override final;
+
+        bool isDone() const override final;
+    private:
+        std::ifstream ifs;
+    };
 }

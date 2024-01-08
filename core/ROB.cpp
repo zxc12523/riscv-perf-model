@@ -27,6 +27,22 @@ namespace olympia
                      "total_number_of_flushes",
                      "The total number of flushes performed by the ROB",
                      sparta::Counter::COUNT_NORMAL),
+        num_arith_(&unit_stat_set_,
+                     "total_number_of_arithmatic",
+                     "The total number of flushes performed by the ROB",
+                     sparta::Counter::COUNT_NORMAL),
+        num_branch_(&unit_stat_set_,
+                     "total_number_of_branch",
+                     "The total number of flushes performed by the ROB",
+                     sparta::Counter::COUNT_NORMAL),
+        num_load_(&unit_stat_set_,
+                     "total_number_of_load",
+                     "The total number of flushes performed by the ROB",
+                     sparta::Counter::COUNT_NORMAL),
+        num_store_(&unit_stat_set_,
+                     "total_number_of_store",
+                     "The total number of flushes performed by the ROB",
+                     sparta::Counter::COUNT_NORMAL),
         overall_ipc_si_(&stat_ipc_),
         period_ipc_si_(&stat_ipc_),
         retire_timeout_interval_(p->retire_timeout_interval),
@@ -61,6 +77,8 @@ namespace olympia
         ));
         // Send initial credits to anyone that cares.  Probably Dispatch.
         sparta::StartupEvent(node, CREATE_SPARTA_HANDLER(ROB, sendInitialCredits_));
+
+        num_compress_.resize(10, 0);
     }
 
     /// Destroy!
@@ -122,22 +140,54 @@ namespace olympia
                 // sending retired instruction to rename
                 out_rob_retire_ack_rename_.send(ex_inst_ptr);
 
-                ++num_retired_;
+                if (ex_inst_ptr->getCompressed()) {
+                    num_retired_ += 2;
+                }
+                else {
+                    num_retired_ += 1;
+                }
+
                 ++retired_this_cycle;
+                ++num_compress_[ex_inst_ptr->getCompressed()];
                 reorder_buffer_.pop();
+
+                num_arith_ += ex_inst_ptr->isArith();
+                num_branch_ += ex_inst_ptr->isBranch();
+                num_load_ += ex_inst_ptr->isLoad();
+                num_store_ += ex_inst_ptr->isStoreInst();
 
                 ILOG("retiring " << ex_inst);
 
-                if(SPARTA_EXPECT_FALSE((num_retired_ % retire_heartbeat_) == 0)) {
+                if(SPARTA_EXPECT_FALSE((num_retired_ >= retire_heartbeat_))) {
                     std::cout << "olympia: Retired " << num_retired_.get()
                               << " instructions in " << getClock()->currentCycle()
                               << " cycles.  Period IPC: " << period_ipc_si_.getValue()
                               << " overall IPC: " << overall_ipc_si_.getValue()
                               << std::endl;
+                    std::cout << "-------------------- Statistic information --------------------" << std::endl;
+                    std::cout << "Arith:                " << num_arith_     << std::endl
+                              << "Branch:               " << num_branch_    << std::endl
+                              << "Load:                 " << num_load_      << std::endl
+                              << "Store:                " << num_store_     << std::endl
+                              << std::endl;
+                    std::cout << "-------------------- Statistic information --------------------" << std::endl;
+                    std::cout << "-------------------- Compression information --------------------" << std::endl;
+                    std::cout << "None:                     " << num_compress_[0] << std::endl
+                              << "Load_Effective_Address:   " << num_compress_[1] << std::endl
+                              << "Index_Load:               " << num_compress_[2] << std::endl
+                              << "Clear_Upper_Word:         " << num_compress_[3] << std::endl
+                              << "Load_Immediate_Idiom:     " << num_compress_[4] << std::endl
+                              << "Load_Global:              " << num_compress_[5] << std::endl
+                              << "Load_Pair:                " << num_compress_[6] << std::endl
+                              << "Store_Pair:               " << num_compress_[7] << std::endl
+                              << "Shift_Load_Pair:          " << num_compress_[8] << std::endl
+                              << "Imm_Cmp:                  " << num_compress_[9] << std::endl
+                              << std::endl;
+                    std::cout << "-------------------- Compression information --------------------" << std::endl;
                     period_ipc_si_.start();
                 }
                 // Will be true if the user provides a -i option
-                if (SPARTA_EXPECT_FALSE((num_retired_ == num_insts_to_retire_))) {
+                if (SPARTA_EXPECT_FALSE((num_retired_ >= num_insts_to_retire_))) {
                     rob_stopped_simulation_ = true;
                     rob_drained_notif_source_->postNotification(true);
                     getScheduler()->stopRunning();
