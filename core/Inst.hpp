@@ -282,7 +282,6 @@ namespace olympia
 
         sparta::memory::addr_t inst_pc_       = 0; // Instruction's PC
         sparta::memory::addr_t target_vaddr_  = 0; // Instruction's Target PC (for branches, loads/stores)
-        bool                   is_oldest_       = false;
         uint8_t                is_compressed  = 0;
         bool                   is_oldest_     = false;
         bool                   is_last_       = false;  // Is last intruction of trace

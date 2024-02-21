@@ -238,6 +238,7 @@ namespace olympia
         {
             std::cerr << e.what() << '\n';
             std::cerr << "fetch trace failed!\n";
+            throw;
         }
         
 
