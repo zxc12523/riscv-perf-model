@@ -172,17 +172,22 @@ namespace olympia
                               << std::endl;
                     std::cout << "-------------------- Statistic information --------------------" << std::endl;
                     std::cout << "-------------------- Compression information --------------------" << std::endl;
-                    std::cout << "None:                     " << num_compress_[0] << std::endl
-                              << "Load_Effective_Address:   " << num_compress_[1] << std::endl
-                              << "Index_Load:               " << num_compress_[2] << std::endl
-                              << "Clear_Upper_Word:         " << num_compress_[3] << std::endl
-                              << "Load_Immediate_Idiom:     " << num_compress_[4] << std::endl
-                              << "Load_Global:              " << num_compress_[5] << std::endl
-                              << "Load_Pair:                " << num_compress_[6] << std::endl
-                              << "Store_Pair:               " << num_compress_[7] << std::endl
-                              << "Shift_Load_Pair:          " << num_compress_[8] << std::endl
-                              << "Imm_Cmp:                  " << num_compress_[9] << std::endl
-                              << std::endl;
+                    for (auto i : num_compress_) {
+                        std::cerr << i << ' ';
+                    }
+                    std::cerr << '\n';
+
+                    // std::cerr << "None:                     " << num_compress_[0] << std::endl
+                    //           << "Load_Effective_Address:   " << num_compress_[1] << std::endl
+                    //           << "Index_Load:               " << num_compress_[2] << std::endl
+                    //           << "Clear_Upper_Word:         " << num_compress_[3] << std::endl
+                    //           << "Load_Immediate_Idiom:     " << num_compress_[4] << std::endl
+                    //           << "Load_Global:              " << num_compress_[5] << std::endl
+                    //           << "Load_Pair:                " << num_compress_[6] << std::endl
+                    //           << "Store_Pair:               " << num_compress_[7] << std::endl
+                    //           << "Shift_Load_Pair:          " << num_compress_[8] << std::endl
+                    //           << "Imm_Cmp:                  " << num_compress_[9] << std::endl
+                    //           << std::endl;
                     std::cout << "-------------------- Compression information --------------------" << std::endl;
                     period_ipc_si_.start();
                 }

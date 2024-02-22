@@ -21,7 +21,8 @@ namespace olympia
             return std::unique_ptr<InstGenerator>(new TraceInstGenerator(mavis_facade, filename, skip_nonuser_mode));
         }
 
-        const std::string trace_ext = "trace";
+        const std::string trace_ext = "txt";
+        std::cout << trace_ext << '\n';
         if ((filename.size() > trace_ext.size()) && filename.substr(filename.size() - trace_ext.size()) == trace_ext) {
             std::cout << "olympia: TRACE file input detected" << std::endl;
             return std::unique_ptr<InstGenerator>(new QEMUTraceInstGenerator(mavis_facade, filename, skip_nonuser_mode));
