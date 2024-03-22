@@ -97,16 +97,29 @@ namespace olympia
 
         bool checkRegisterDependency(InstPtr FirstInst, InstPtr SecondInst);
         bool checkRegisterSameSource(InstPtr FirstInst, InstPtr SecondInst);
+        bool checkRegisterSameDest(InstPtr FirstInst, InstPtr SecondInst);
 
         bool isLoadEffectAddress    (InstPtr FirstInst, InstPtr SecondInst);
         bool isIndexLoad            (InstPtr FirstInst, InstPtr SecondInst);
         bool isClearUpperWord       (InstPtr FirstInst, InstPtr SecondInst);
         bool isLoadImmediateIdiom   (InstPtr FirstInst, InstPtr SecondInst);
         bool isLoadGloabal          (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair8bits        (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair16bits       (InstPtr FirstInst, InstPtr SecondInst);
         bool isLoadPair32bits       (InstPtr FirstInst, InstPtr SecondInst);
         bool isLoadPair64bits       (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair8bitsDBR     (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair16bitsDBR    (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair32bitsDBR    (InstPtr FirstInst, InstPtr SecondInst);
+        bool isLoadPair64bitsDBR    (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair8bits       (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair16bits      (InstPtr FirstInst, InstPtr SecondInst);
         bool isStorePair32bits      (InstPtr FirstInst, InstPtr SecondInst);
         bool isStorePair64bits      (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair8bitsDBR    (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair16bitsDBR   (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair32bitsDBR   (InstPtr FirstInst, InstPtr SecondInst);
+        bool isStorePair64bitsDBR   (InstPtr FirstInst, InstPtr SecondInst);
         bool isShxaddLoad           (InstPtr FirstInst, InstPtr SecondInst);
         bool isCompareImmediate     (InstPtr FirstInst, InstPtr SecondInst);
     };

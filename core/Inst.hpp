@@ -96,7 +96,9 @@ namespace olympia
             Load_Immediate_Idiom,
             Load_Global,
             Load_Pair,
+            Load_Pair_DBR,
             Store_Pair, 
+            Store_Pair_DBR, 
             Shift_Load, 
             Imm_Cmp
         };
@@ -176,14 +178,20 @@ namespace olympia
             case Inst::Compressed::Load_Pair:
                 is_compressed = 6;
                 break;
-            case Inst::Compressed::Store_Pair:
+            case Inst::Compressed::Load_Pair_DBR:
                 is_compressed = 7;
                 break;
-            case Inst::Compressed::Shift_Load:
+            case Inst::Compressed::Store_Pair:
                 is_compressed = 8;
                 break;
-            case Inst::Compressed::Imm_Cmp:
+            case Inst::Compressed::Store_Pair_DBR:
                 is_compressed = 9;
+                break;
+            case Inst::Compressed::Shift_Load:
+                is_compressed = 10;
+                break;
+            case Inst::Compressed::Imm_Cmp:
+                is_compressed = 11;
                 break;
             
             default:

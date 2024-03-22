@@ -8,14 +8,14 @@ include: medium_core.yaml
 top.cpu.core0:
   fetch.params.num_to_fetch:   8
   decode.params.num_to_decode: 8
-  decode.params.fuse_insts: 0
+  decode.params.fuse_insts: 1
   decode.params.fuse_mode: 0
   rename.params.num_to_rename: 8
   rename.params.num_integer_renames: 64
   rename.params.num_float_renames: 64
   dispatch.params.num_to_dispatch: 8
   rob.params.num_to_retire:    8
-  rob.params.retire_heartbeat: 1000000
+  rob.params.retire_heartbeat: 99000000
   dcache.params:
     l1_size_kb: 64
 

@@ -78,7 +78,7 @@ namespace olympia
         // Send initial credits to anyone that cares.  Probably Dispatch.
         sparta::StartupEvent(node, CREATE_SPARTA_HANDLER(ROB, sendInitialCredits_));
 
-        num_compress_.resize(10, 0);
+        num_compress_.resize(12, 0);
     }
 
     /// Destroy!

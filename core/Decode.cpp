@@ -121,6 +121,10 @@ namespace olympia
         return (FirstInst->getIntSourceRegs() & SecondInst->getIntSourceRegs()) != 0;
     }
 
+    bool Decode::checkRegisterSameDest(InstPtr FirstInst, InstPtr SecondInst) {
+        return (FirstInst->getIntDestRegs() & SecondInst->getIntDestRegs()) != 0;
+    }
+
     // Fuse SLLI/SLLIW followed by ADD/ADDW.
     // slli rd r1 imm
     // add rd, rd, rs2
@@ -208,13 +212,45 @@ namespace olympia
     // Fuse consecutive load
     // lw rd, r1, imm
     // lw rd, r1, imm + 4
+    bool Decode::isLoadPair8bits(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "lb" && 
+            FirstInst->getMnemonic() != "lbu")
+            return false;
+
+        if (SecondInst->getMnemonic() != "lb" && 
+            SecondInst->getMnemonic() != "lbu")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 1)
+            return false;
+        
+        return checkRegisterSameSource(FirstInst, SecondInst);
+    }
+
+    bool Decode::isLoadPair16bits(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "lh" && 
+            FirstInst->getMnemonic() != "lhu")
+            return false;
+
+        if (SecondInst->getMnemonic() != "lh" && 
+            SecondInst->getMnemonic() != "lhu")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 2)
+            return false;
+        
+        return checkRegisterSameSource(FirstInst, SecondInst);
+    }
+
     bool Decode::isLoadPair32bits(InstPtr FirstInst, InstPtr SecondInst) {
         if (FirstInst->getMnemonic() != "lw" && 
+            FirstInst->getMnemonic() != "lwu" && 
             FirstInst->getMnemonic() != "c.lw" && 
             FirstInst->getMnemonic() != "c.lwsp")
             return false;
 
         if (SecondInst->getMnemonic() != "lw" && 
+            SecondInst->getMnemonic() != "lwu" && 
             SecondInst->getMnemonic() != "c.lw" && 
             SecondInst->getMnemonic() != "c.lwsp")
             return false;
@@ -246,6 +282,110 @@ namespace olympia
         return checkRegisterSameSource(FirstInst, SecondInst);
     }
 
+    // Fuse consecutive load
+    // lw rd, r1, imm
+    // lw rd, r1, imm + 4
+    bool Decode::isLoadPair8bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "lb" && 
+            FirstInst->getMnemonic() != "lbu")
+            return false;
+
+        if (SecondInst->getMnemonic() != "lb" && 
+            SecondInst->getMnemonic() != "lbu")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+    bool Decode::isLoadPair16bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "lh" && 
+            FirstInst->getMnemonic() != "lhu")
+            return false;
+
+        if (SecondInst->getMnemonic() != "lh" && 
+            SecondInst->getMnemonic() != "lhu")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+    bool Decode::isLoadPair32bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "lw" && 
+            FirstInst->getMnemonic() != "lwu" && 
+            FirstInst->getMnemonic() != "c.lw" && 
+            FirstInst->getMnemonic() != "c.lwsp")
+            return false;
+
+        if (SecondInst->getMnemonic() != "lw" && 
+            SecondInst->getMnemonic() != "lwu" && 
+            SecondInst->getMnemonic() != "c.lw" && 
+            SecondInst->getMnemonic() != "c.lwsp")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+
+    // Fuse consecutive load
+    // ld rd, r1, imm
+    // ld rd, r1, imm + 8
+    bool Decode::isLoadPair64bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "ld" && 
+            FirstInst->getMnemonic() != "c.ld" && 
+            FirstInst->getMnemonic() != "c.ldsp")
+            return false;
+
+        if (SecondInst->getMnemonic() != "ld" && 
+            SecondInst->getMnemonic() != "c.ld" && 
+            SecondInst->getMnemonic() != "c.ldsp")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+    // Fuse consecutive store
+    // sw rd, r1, imm
+    // sw rd, r1, imm + 1
+    bool Decode::isStorePair8bits(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "sb")
+            return false;
+
+        if (SecondInst->getMnemonic() != "sb")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 1)
+            return false;
+        
+        return checkRegisterSameSource(FirstInst, SecondInst);
+    }
+
+    // Fuse consecutive store
+    // sw rd, r1, imm
+    // sw rd, r1, imm + 2
+    bool Decode::isStorePair16bits(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "sh")
+            return false;
+
+        if (SecondInst->getMnemonic() != "sh")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 2)
+            return false;
+        
+        return checkRegisterSameSource(FirstInst, SecondInst);
+    }
 
     // Fuse consecutive store
     // sw rd, r1, imm
@@ -286,6 +426,79 @@ namespace olympia
             return false;
         
         return checkRegisterSameSource(FirstInst, SecondInst);
+    }
+
+    // Fuse consecutive store
+    // sw rd, r1, imm
+    // sw rd, r1, imm + 1
+    bool Decode::isStorePair8bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "sb")
+            return false;
+
+        if (SecondInst->getMnemonic() != "sb")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+    // Fuse consecutive store
+    // sw rd, r1, imm
+    // sw rd, r1, imm + 2
+    bool Decode::isStorePair16bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "sh")
+            return false;
+
+        if (SecondInst->getMnemonic() != "sh")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+    // Fuse consecutive store
+    // sw rd, r1, imm
+    // sw rd, r1, imm + 4
+    bool Decode::isStorePair32bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "sw" && 
+            FirstInst->getMnemonic() != "c.sw" && 
+            FirstInst->getMnemonic() != "c.swsp")
+            return false;
+
+        if (SecondInst->getMnemonic() != "sw" && 
+            SecondInst->getMnemonic() != "c.sw" && 
+            SecondInst->getMnemonic() != "c.swsp")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
+    }
+
+
+    // Fuse consecutive store
+    // sd rd, r1, imm
+    // sd rd, r1, imm + 8
+    bool Decode::isStorePair64bitsDBR(InstPtr FirstInst, InstPtr SecondInst) {
+        if (FirstInst->getMnemonic() != "sd" && 
+            FirstInst->getMnemonic() != "c.sd" && 
+            FirstInst->getMnemonic() != "c.sdsp")
+            return false;
+
+        if (SecondInst->getMnemonic() != "sd" && 
+            SecondInst->getMnemonic() != "c.sd" && 
+            SecondInst->getMnemonic() != "c.sdsp")
+            return false;
+        
+        if (abs((long)FirstInst->getImmediate() - (long)SecondInst->getImmediate()) != 0)
+            return false;
+        
+        return !checkRegisterSameDest(FirstInst, SecondInst);
     }
 
 
@@ -356,6 +569,20 @@ namespace olympia
             return b;
         }
 
+        // Load Pair 8bits
+        if (isLoadPair8bits(a, b)) {
+            ILOG("Load pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Load_Pair);
+            return b;
+        }
+
+        // Load Pair 16bits
+        if (isLoadPair16bits(a, b)) {
+            ILOG("Load pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Load_Pair);
+            return b;
+        }
+
         // Load Pair 32bits
         if (isLoadPair32bits(a, b)) {
             ILOG("Load pair: " << a << b);
@@ -370,6 +597,50 @@ namespace olympia
             return b;
         }
 
+        
+        // Load Pair 8bits
+        if (isLoadPair8bitsDBR(a, b)) {
+            ILOG("Load pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Load_Pair_DBR);
+            return b;
+        }
+
+        // Load Pair 16bits
+        if (isLoadPair16bitsDBR(a, b)) {
+            ILOG("Load pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Load_Pair_DBR);
+            return b;
+        }
+
+        // Load Pair 32bits
+        if (isLoadPair32bitsDBR(a, b)) {
+            ILOG("Load pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Load_Pair_DBR);
+            return b;
+        }
+
+        // Load Pair 64bits
+        if (isLoadPair64bitsDBR(a, b)) {
+            ILOG("Load pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Load_Pair_DBR);
+            return b;
+        }
+
+        // Store Pair 8bits
+        if (isStorePair8bits(a, b)) {
+            ILOG("Store pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Store_Pair);
+            return b;
+        }
+
+        // Store Pair 16bits
+        if (isStorePair16bits(a, b)) {
+            ILOG("Store pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Store_Pair);
+            return b;
+        }
+
+
         // Store Pair 32bits
         if (isStorePair32bits(a, b)) {
             ILOG("Store pair: " << a << b);
@@ -381,6 +652,35 @@ namespace olympia
         if (isStorePair64bits(a, b)) {
             ILOG("Store pair: " << a << b);
             b->setCompressed(Inst::Compressed::Store_Pair);
+            return b;
+        }
+
+        // Store Pair 8bits
+        if (isStorePair8bitsDBR(a, b)) {
+            ILOG("Store pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Store_Pair_DBR);
+            return b;
+        }
+
+        // Store Pair 16bits
+        if (isStorePair16bitsDBR(a, b)) {
+            ILOG("Store pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Store_Pair_DBR);
+            return b;
+        }
+
+
+        // Store Pair 32bits
+        if (isStorePair32bitsDBR(a, b)) {
+            ILOG("Store pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Store_Pair_DBR);
+            return b;
+        }
+
+        // Store Pair 64bits
+        if (isStorePair64bitsDBR(a, b)) {
+            ILOG("Store pair: " << a << b);
+            b->setCompressed(Inst::Compressed::Store_Pair_DBR);
             return b;
         }
 
